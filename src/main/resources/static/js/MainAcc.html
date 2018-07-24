@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="Accapp" ng-controller="formController">
+  <form novalidate>
+	Account Name:
+    <input type="text" ng-model="Accname">
+    Ac type:
+    <input type="text" ng-model="Acctype">
+    <br><br>
+    <button type ="submit" ng-click="ButtonClick()">SUBMIT</button>
+  </form>
+  <p>form = {{user }}</p>
+  <p>master = {{master}}</p>
+</div>
+<script>
+var acapp=angular.module("Accapp",[]);
+acapp.controller('formController',function($scope, $http){
+	var data= $.param({
+	acnm:$scope.Accname,
+	actyp:$scope.Acctype
+	
+	$scope.ButtonClick = function () {
+            var post = $http({
+                method: "POST",
+                url: "http://localhost:8400/Test/create",
+                dataType: 'json',
+                data: { acnm:$scope.Accname,actyp: $scope.Accname },
+                headers: { "Content-Type": "application/json" }
+	});
+
+
+		 post.success(function (data, status) {
+                $window.alert("Hello: " + data.Name + " .\nCurrent Date and Time: " + data.DateTime);
+            });
+ 
+            post.error(function (data, status) {
+                $window.alert(data.Message);
+            });
+
+function formController ($scope) {
+    $scope.master = {Website:"Concretepage.com", Topic:"AngulatJS Form"};
+    $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+    };
+    $scope.reset();
+}
+</script>
+</body>
+</html>
