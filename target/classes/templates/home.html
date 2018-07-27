@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="testapp">
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Spring MVC AngularJS demo</title>
+
+</head>
+ 
+		
+	 <script src="js/lib/angular.min.js" ></script>
+       <script src="js/lib/angular-ui-router.min.js" ></script>
+        <script src="js/lib/localforage.min.js" ></script>
+        <script src="js/lib/ngStorage.min.js"></script>
+  		<script type="text/javascript" src="js/app/two.js"></script> 
+		<script type="text/javascript" src="js/app/one.js"></script> 
+<body ng-controller="namesCtrl">
+	
+		<div >
+		 
+        
+		
+    	<!-- <script type="text/javascript" th:src="@{/resources/js/one.js}" />
+    	<script type="text/javascript" th:src="@{/resources/js/two.js}" /> --> 
+			<button ng-click="getPersonDataFromServer()">Get Person data from server</button>
+			<p>First Name : {{person.firstName}}</p>
+			<p>Last Name : {{person.lastName}}</p>
+		</div>
+	
+</body>
+
+	
+</html>
