@@ -1,22 +1,27 @@
  <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="accapp">
 <head>
-<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+ <script src="lib/angular.min.js" ></script>
+       <script src="lib/angular-ui-router.min.js" ></script>
+        <script src="lib/localforage.min.js" ></script>
+        <script src="lib/ngStorage.min.js"></script>
+  		<script type="text/javascript" src="app/accctrl.js"></script> 
+		<script type="text/javascript" src="app/acctService.js"></script> 
 </head>
 <body>
-<div ng-app="Accapp" ng-controller="formController">
+<div  ng-controller="formController">
   <form novalidate>
-	Account Name:
-    <input type="text" ng-model="Accname">
-    Ac type:
-    <input type="text" ng-model="Acctype">
+	accountName:
+    <input type="text" id="accountName" ng-model="testform.accountName">
+    accountType:
+    <input type="text" id="accountType" ng-model="testform.accountType">
     <br><br>
-    <button type ="submit" ng-click="ButtonClick()">SUBMIT</button>
+    <button type ="submit" ng-click="createCustomerAccount(testform)">SUBMIT</button>
   </form>
-  <p>form = {{user }}</p>
-  <p>master = {{master}}</p>
+  <p>form = {{account.accountName }}</p>
+  <p>master = {{account.accountType}}</p>
 </div>
-<script>
+<!-- <script>
 var acapp=angular.module("Accapp",[]);
 acapp.controller('formController',function($scope, $http){
 	var data= $.param({
@@ -47,7 +52,7 @@ function formController ($scope) {
         $scope.user = angular.copy($scope.master);
     };
     $scope.reset();
-}
+} -->
 </script>
 </body>
 </html>
