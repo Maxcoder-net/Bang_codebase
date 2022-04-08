@@ -1,4 +1,15 @@
 # Maven
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Azure Pass - Sponsorship(233e5679-3569-49e6-9c5e-cba3bf727db8)'
+    subscriptionId: '233e5679-3569-49e6-9c5e-cba3bf727db8'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'DefaultResourceGroup-CCAN'
+    location: 'Australia Southeast'
+    templateLocation: 'Linked artifact'
+    csmFile: 'rt'
+    deploymentMode: 'Incremental'
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
